@@ -1,0 +1,166 @@
+
+<MainWindow>:
+    canvas.before:
+        Color:
+            rgba: app.PINK_RGB
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    name: 'main'
+    break_time: user_break_time_input
+    work_time: user_work_time_input
+    GridLayout:
+        cols: 1
+        padding: 25
+        Image:
+            id: logo_image
+            source: "logo_7.png"
+        BoxLayout:
+            padding: [0, 120]
+            spacing: 100
+            orientation: 'vertical'
+
+            MDTextField:
+                id: user_work_time_input
+                mode: 'rectangle'
+                line_color_normal: app.DEEP_PINK_RGB
+                helper_text: "e.g. 45"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint_x: None
+                hint_text: 'Work time'
+                width: 300
+                icon_right: "clock-edit"
+
+
+            MDTextField:
+                id: user_break_time_input
+                mode: 'rectangle'
+
+                line_color_normal: app.DEEP_PINK_RGB
+                hint_text: 'Break time'
+                icon_right: 'clock-edit'
+                helper_text_mode: "on_focus"
+                helper_text: "e.g. 15"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint_x: None
+                fill_color: 0, 0, 0, 1
+                width: 300
+
+
+        MDFillRoundFlatButton:
+            size_hint: (0.5, 0.2)
+            id: submit_btn
+            text: "Submit"
+            md_bg_color: "#EE1289"
+            on_release:
+                app.customize_time()
+                root.manager.transition.direction = "left"
+
+
+
+<TimerWindow>:
+    canvas.before:
+        Color:
+            rgba: app.PINK_RGB
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    id: timer_window
+    name: "timer"
+    GridLayout:
+        size_hint: (0.9, 0.9)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        spacing: 25
+        cols: 3
+
+
+
+        MDFillRoundFlatButton:
+            id: animals_button
+            text: "Button 1"
+            md_bg_color: root.DEEP_PINK
+            size_hint: (root.x_size, root.y_size)
+
+            bold:True
+
+            on_press: app.animals_update()
+
+        MDFillRoundFlatButton:
+            id: bisitos_button
+            text: "Button 2"
+            md_bg_color: root.DEEP_PINK
+            size_hint: (root.x_size, root.y_size)
+
+            bold:True
+            on_press: app.bisitos_update()
+
+        MDFillRoundFlatButton:
+            id: fruits_button
+            text: "Button 3"
+            md_bg_color: root.DEEP_PINK
+            size_hint: (root.x_size, root.y_size)
+            bold: True
+            on_press:
+                app.fruits_update()
+                app.change_button()
+
+
+        Label:
+            id: left_label
+            text: "Work Label 1"
+            text_size: self.size
+            size: self.texture_size
+            font_size: 24
+            halign: 'center'
+            color: root.GREEN
+            bold: True
+
+        Image:
+            id: center_img
+
+            fit_mode: "contain"
+
+            source: root.start_img
+
+
+
+        Label:
+            id: right_label
+            text: "Work label 2"
+            text_size: self.size
+            size: self.texture_size
+            halign: 'center'
+            font_size: 24
+            color: root.GREEN
+            bold: True
+
+
+        MDFillRoundFlatButton:
+            id: start_button
+            text: "Start"
+            md_bg_color: root.DEEP_PINK
+            size_hint: (root.x_size, root.y_size)
+
+
+            bold: True
+            on_release: app.start_clock()
+
+        Label:
+            id: timer_label
+            text: "0:00:00"
+            font_size: 26
+            color: root.GREEN
+            bold: True
+
+        MDFillRoundFlatButton:
+            id: reset_button
+            text: "Reset"
+            bold: True
+            md_bg_color: root.DEEP_PINK
+            size_hint: (root.x_size, root.y_size)
+
+            on_release: app.reset_clock()
+
+
