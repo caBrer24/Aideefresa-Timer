@@ -44,9 +44,9 @@ class Aideefresa(MDApp):
         sm.add_widget(TimerWindow(name='timer'))
         self.theme_cls.primary_palette = "Purple"
 
-        self.bisito_index = 0
+        self.cats_index = 0
         self.fruits_index = 0
-        self.animals_index = 0
+        self.dogs_index = 0
         self.reps = 0
         self.reset = 0
 
