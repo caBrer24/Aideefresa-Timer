@@ -31,9 +31,9 @@ class MainWindow(Screen):
 
 class Aideefresa(MDApp):
 
-    animals_list = [img for img in os.listdir('Dogs')]
+    dogs_list = [img for img in os.listdir('Dogs')]
     fruits_list = [img for img in os.listdir('Fruits')]
-    bisito_list = [img for img in os.listdir('Cats')]
+    cats_list = [img for img in os.listdir('Cats')]
     DEEP_PINK_RGB = (0.9333333333333333, 0.07058823529411765, 0.5372549019607843, 1)
     PINK_RGB = (1, 0.8196078431372549, 0.8549019607843137, 1)
 
@@ -74,13 +74,13 @@ class Aideefresa(MDApp):
 
             self.root.get_screen('timer').ids.timer_label.text = self.format_timer()
 
-    def animals_update(self):
+    def dogs_update(self):
         self.animals_index += 1
 
-        if self.animals_index == len(self.animals_list):
+        if self.animals_index == len(self.dogs_list):
             self.animals_index = 0
 
-        self.root.get_screen('timer').ids.center_img.source = f"Dogs/{self.animals_list[self.animals_index]}"
+        self.root.get_screen('timer').ids.center_img.source = f"Dogs/{self.dogs_list[self.animals_index]}"
 
     def fruits_update(self):
         self.fruits_index += 1
@@ -90,13 +90,13 @@ class Aideefresa(MDApp):
 
         self.root.get_screen('timer').ids.center_img.source = f"Fruits/{self.fruits_list[self.fruits_index]}"
 
-    def bisitos_update(self):
+    def cats_update(self):
         self.bisito_index += 1
 
-        if self.bisito_index == len(self.bisito_list):
+        if self.bisito_index == len(self.cats_list):
             self.bisito_index = 0
 
-        self.root.get_screen('timer').ids.center_img.source = f"Cats/{self.bisito_list[self.bisito_index]}"
+        self.root.get_screen('timer').ids.center_img.source = f"Cats/{self.cats_list[self.bisito_index]}"
 
     def change_button(self):
 
