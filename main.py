@@ -75,12 +75,12 @@ class Aideefresa(MDApp):
             self.root.get_screen('timer').ids.timer_label.text = self.format_timer()
 
     def dogs_update(self):
-        self.animals_index += 1
+        self.dogs_index += 1
 
-        if self.animals_index == len(self.dogs_list):
-            self.animals_index = 0
+        if self.dogs_index == len(self.dogs_list):
+            self.dogs_index = 0
 
-        self.root.get_screen('timer').ids.center_img.source = f"Dogs/{self.dogs_list[self.animals_index]}"
+        self.root.get_screen('timer').ids.center_img.source = f"Dogs/{self.dogs_list[self.dogs_index]}"
 
     def fruits_update(self):
         self.fruits_index += 1
@@ -91,12 +91,12 @@ class Aideefresa(MDApp):
         self.root.get_screen('timer').ids.center_img.source = f"Fruits/{self.fruits_list[self.fruits_index]}"
 
     def cats_update(self):
-        self.bisito_index += 1
+        self.cats_index += 1
 
-        if self.bisito_index == len(self.cats_list):
-            self.bisito_index = 0
+        if self.cats_index == len(self.cats_list):
+            self.cats_index = 0
 
-        self.root.get_screen('timer').ids.center_img.source = f"Cats/{self.cats_list[self.bisito_index]}"
+        self.root.get_screen('timer').ids.center_img.source = f"Cats/{self.cats_list[self.cats_index]}"
 
     def change_button(self):
 
